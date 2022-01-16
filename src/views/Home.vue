@@ -195,7 +195,7 @@ export default {
   },
   methods: {
     calcIncome () {
-      if (this.playedMatches && this.totalMatches) {
+      if (this.playedMatches !== null && this.totalMatches !== null) {
         const remainingBattle = this.totalMatches - this.playedMatches
         this.thcIncome = remainingBattle * this.heroType
         const totalIncomeInUSD = this.thcIncome * this.thcPrice
