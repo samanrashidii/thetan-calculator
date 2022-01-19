@@ -54,6 +54,11 @@
             type="text"
             class="number-input-x2"
           />
+          <span
+            class="ml-1"
+          >
+            $
+          </span>
         </div>
         <div
           class="form-item my-3 d-flex justify-content-center align-items-center"
@@ -140,7 +145,7 @@
             'text-success': profit > 0
           }"
         >
-          {{ profit + '$' }}
+          {{ profit + '$ | ' + profitPercentage + '%'  }}
         </h1>
       </div>
     </div>
@@ -185,6 +190,13 @@ export default {
       }
       return output
     },
+    profitPercentage () {
+      let output = 0
+      if (this.dollarIncome && this.heroPrice) {
+        output = (this.profit * 100) / this.heroPrice
+      }
+      return output
+    },
     heroPriceInTHC () {
       let output = 0
       if (this.heroPrice && this.thcPrice) {
@@ -211,6 +223,9 @@ export default {
     max-width: 480px;
     margin-left: auto;
     margin-right: auto;
+  }
+  .ml-1{
+    margin-left: .25rem;
   }
   .mr-2{
     margin-right: 1rem;
